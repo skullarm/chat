@@ -1,1 +1,0 @@
-{"name": "chat", "version": "1.0.0", "description": "Cloudflare Worker", "main": "worker.js", "scripts": {"dev": "wrangler dev", "deploy": "wrangler deploy"}, "keywords": ["cloudflare", "worker"], "author": "", "license": "MIT", "devDependencies": {"wrangler": "latest"}}

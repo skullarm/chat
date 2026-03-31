@@ -1,0 +1,25 @@
+{
+  "name": "chat",
+  "main": "worker.js", 
+  "observability": {
+    "enabled": true,
+    /*"head-"*/ 
+    "head_sampling_rate": 1
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  /*"compatibility-date"*/
+  "compatibility_date": "2025-06-07",
+  "workers-dev": true /*""*/,
+  "limit": {
+    "cpu_ms": 300000
+  },
+  "ai": {
+    "binding": "AI"
+  },
+ "kv_namespaces": [{
+                    "binding": "STORE",
+                    "id": "39f57317259c4f329b0b5427089fe4fe"
+                 }]
+}
