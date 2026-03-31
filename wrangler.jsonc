@@ -1,0 +1,1 @@
+{\n  "name": "chat",\n  "main": "src/worker.js",\n  "compatibility_date": "2024-12-16",\n  "env": {\n    "production": {\n      "name": "chat-production",\n      "routes": [\n        {\n          "pattern": "example.com/*",\n          "zone_name": "example.com"\n        }\n      ]\n    }\n  }\n}
