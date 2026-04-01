@@ -9,13 +9,9 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "ai": [
-    {
-      "name": "AI",
-      "type": "openai",
-      "model": "@cf/meta/llama-3.2-1b-instruct"
-    }
-  ],
+  "ai": {
+    "binding": "AI"
+  },
   /*"compatibility-date"*/
   "compatibility_date": "2025-06-07",
   "workers-dev": true /*""*/,
