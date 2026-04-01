@@ -1,9 +1,14 @@
 {
   "name": "chat",
-  "main": "worker.js",
-  "compatibility_date": "2024-12-16",
-  "workers_dev": true,
-  "account_id": "YOUR_ACCOUNT_ID",
+  "main": "worker.js", 
+  "observability": {
+    "enabled": true,
+    /*"head-"*/ 
+    "head_sampling_rate": 1
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "ai": [
     {
       "name": "AI",
@@ -11,15 +16,14 @@
       "model": "@cf/meta/llama-3.2-1b-instruct"
     }
   ],
-  "env": {
-    "production": {
-      "name": "chat-production",
-      "routes": [
-        {
-          "pattern": "example.com/*",
-          "zone_name": "example.com"
-        }
-      ]
-    }
-  }
+  /*"compatibility-date"*/
+  "compatibility_date": "2025-06-07",
+  "workers-dev": true /*""*/,
+  "limit": {
+    "cpu_ms": 300000
+  },
+ "kv_namespaces": [{
+                    "binding": "STORE",
+                    "id": "39f57317259c4f329b0b5427089fe4fe"
+                 }]
 }
