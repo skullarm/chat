@@ -231,7 +231,9 @@ var worker_default = {
         const cacheKey = cacheUrl.toString();
         const cache2 = caches.default;
         const binaryCacheKey = cacheKey + "&cache=bin1";
-        let cacheResponse = await cache2.match(binaryCacheKey);
+        // Skip cache for video files
+        const isVideoRequest = normalizedU.match(/\.(mp4|webm|mov|avi|flv|mkv|m3u8|ts)$/i);
+        let cacheResponse = isVideoRequest ? null : await cache2.match(binaryCacheKey);
         let result, data;
         if (cacheResponse) {
           const cachedContentType = cacheResponse.headers.get("Content-Type") || "application/octet-stream";
@@ -251,7 +253,7 @@ var worker_default = {
           } catch (e) {
           }
         }
-        cacheResponse = await cache2.match(cacheKey);
+        cacheResponse = isVideoRequest ? null : await cache2.match(cacheKey);
         let response = cacheResponse;
         let origin;
         try {
@@ -366,6 +368,7 @@ var worker_default = {
           await cachePut(cacheKey, result, cache2);
           safeSend(result);
         } else if (contentType.startsWith("video") || contentType.startsWith("audio") || contentType.startsWith("image") || contentType === "application/pdf" || contentType.toLowerCase().includes("epub") || contentType.toLowerCase().includes("torrent")) {
+          // Only cache images and PDFs, never cache audio or video
           const shouldCache = !contentType.startsWith("audio") && !contentType.startsWith("video");
           await streamAndMaybeCacheMedia(
             response,
