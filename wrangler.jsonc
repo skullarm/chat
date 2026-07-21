@@ -1,5 +1,5 @@
 {
-  "name": "chatt",
+  "name": "v",
   "main": "worker.js", 
   "observability": {
     "enabled": true,
